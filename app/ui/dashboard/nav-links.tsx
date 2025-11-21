@@ -1,24 +1,25 @@
-'use client';
+'use client';//告诉NEXT.JS，此文件要在浏览器里执行
 import {
   UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
+//引入三个图标
+import Link from 'next/link';//引入Link组件，用于页面导航
+import { usePathname } from 'next/navigation';//引入usePathname钩子，用于获取当前路径
+import clsx from 'clsx';//引入clsx库，用于条件拼接CSS类名
 
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/dashboard', icon: HomeIcon },
+  { name: 'Home', href: '/dashboard', icon: HomeIcon },//导航链接数组
   {
-    name: 'Invoices',
+    name: 'Invoices',//导航名称
     href: '/dashboard/invoices',
     icon: DocumentDuplicateIcon,
   },
   { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
-];
+];//每个链接包含名称、路径和图标
 
 export default function NavLinks() {
   const pathname = usePathname();
